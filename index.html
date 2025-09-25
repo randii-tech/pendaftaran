@@ -94,8 +94,60 @@
     </center></table>
     <input type="submit" value="Simpan">
     <input type="submit" value="Reset">
+
+    <h2>Kalkulator Sederhana</h2>
+
+  <label style="color: white;">Input Bilangan 1</label><br>
+  <input type="number" id="bil1"><br>
+
+  <label style="color: white;">Input Bilangan 2</label><br>
+  <input type="number" id="bil2"><br>
+
+  <button onclick="hitung('+')">+</button>
+  <button onclick="hitung('-')">-</button>
+  <button onclick="hitung('*')">*</button>
+  <button onclick="hitung('/')">/</button>
+  <br><br>
+
+  <label style="color: white;">Output:</label><br>
+  <input type="text" id="hasil" readonly>
+
+  <script>
+    function hitung(operasi) {
+      let bil1 = parseFloat(document.getElementById("bil1").value);
+      let bil2 = parseFloat(document.getElementById("bil2").value);
+      let hasil = 0;
+
+      if (isNaN(bil1) || isNaN(bil2)) {
+        alert("Masukkan kedua bilangan terlebih dahulu!");
+        return;
+      }
+
+      switch (operasi) {
+        case '+':
+          hasil = bil1 + bil2;
+          break;
+        case '-':
+          hasil = bil1 - bil2;
+          break;
+        case '*':
+          hasil = bil1 * bil2;
+          break;
+        case '/':
+          if (bil2 === 0) {
+            alert("Tidak bisa dibagi dengan nol!");
+            return;
+          }
+          hasil = bil1 / bil2;
+          break;
+      }
+
+      document.getElementById("hasil").value = hasil;
+    }
+  </script>
 </body>
 
 </html>
+
 
 
